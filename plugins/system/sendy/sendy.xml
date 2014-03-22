@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="system" method="upgrade" client="site">
+    <name>System - Sendy</name>
+    <version>1.0.0</version>
+    <creationDate>2014/03/01</creationDate>
+    <author>SourceCoast | www.sourcecoast.com</author>
+    <authorEmail>support@sourcecoast.com</authorEmail>
+    <authorUrl>http://www.sourcecoast.com</authorUrl>
+    <copyright>2014 SourceCoast. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <description>Sendy System Plugin - Setup the basic parameters for your Sendy installation</description>
+    <files>
+        <filename plugin="sendy">sendy.php</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="widget" label="COM_PLUGINS_BASIC_FIELDSET_LABEL">
+                <field name="sendy_url" type="text" label="Sendy URL" size="50" description="The URL to your Sendy installation"/>
+                <field name="list1_id" type="text" label="List #1 Id" size="50" description="Enter a List ID"/>
+                <field name="list1_name" type="text" label="List #1 Name" size="50" description="Enter a List Name"/>
+                <field name="list2_id" type="text" label="List #2 Id" size="50" description="Enter a List ID"/>
+                <field name="list2_name" type="text" label="List #2 Name" size="50" description="Enter a List Name"/>
+                <field name="list3_id" type="text" label="List #3 Id" size="50" description="Enter a List ID"/>
+                <field name="list3_name" type="text" label="List #3 Name" size="50" description="Enter a List Name"/>
+                <field name="list4_id" type="text" label="List #4 Id" size="50" description="Enter a List ID"/>
+                <field name="list4_name" type="text" label="List #4 Name" size="50" description="Enter a List Name"/>
+                <field name="list5_id" type="text" label="List #5 Id" size="50" description="Enter a List ID"/>
+                <field name="list5_name" type="text" label="List #5 Name" size="50" description="Enter a List Name"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="library" method="upgrade" client="site">
+    <name>Sendy Library</name>
+    <libraryname>sendy</libraryname>
+    <version>1.0.0</version>
+    <creationDate>2014/03/01</creationDate>
+    <author>SourceCoast | www.sourcecoast.com</author>
+    <authorEmail>support@sourcecoast.com</authorEmail>
+    <authorUrl>http://www.sourcecoast.com</authorUrl>
+    <copyright>Copyright (C) 2011-2014 SourceCoast. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <description>Sendy library</description>
+    <files>
+        <filename>sendy.xml</filename>
+        <filename>sendy.php</filename>
+        <filename>fields/sendylists.php</filename>
+    </files>
+</extension>

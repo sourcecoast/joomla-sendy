@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="user" method="upgrade" client="site">
+    <name>User - Sendy</name>
+    <version>1.0.0</version>
+    <creationDate>2014/03/01</creationDate>
+    <author>SourceCoast | www.sourcecoast.com</author>
+    <authorEmail>support@sourcecoast.com</authorEmail>
+    <authorUrl>http://www.sourcecoast.com</authorUrl>
+    <copyright>2014 SourceCoast. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <description>Sendy User Plugin - Auto-subscribe users to a specified list on registration</description>
+    <files>
+        <filename plugin="sendy">sendy.php</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="sendy" label="COM_PLUGINS_BASIC_FIELDSET_LABEL" addfieldpath="/libraries/sendy/fields/">
+                <field name="list_id" type="sendylists" label="Sendy List" description="Select the list ID that a user should be auto-subscribed to after they register on your site."/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
