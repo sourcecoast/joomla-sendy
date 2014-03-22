@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Original build.xml file from Michael Babker Podcast Manager extension -->
-<project name="sendy" default="dev" basedir="../sendy-new">
+<project name="sendy" default="dev" basedir="../sendy">
     <!-- Project properties -->
     <echo message="${project.basedir}"/>
     <property file="./build.properties"/>

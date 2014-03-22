@@ -2,8 +2,8 @@
 <extension version="1.6" type="library" method="upgrade" client="site">
     <name>Sendy Library</name>
     <libraryname>sendy</libraryname>
-    <version>1.0.0</version>
-    <creationDate>2014/03/01</creationDate>
+    <version>1.0.1</version>
+    <creationDate>2014/03/22</creationDate>
     <author>SourceCoast | www.sourcecoast.com</author>
     <authorEmail>support@sourcecoast.com</authorEmail>
     <authorUrl>http://www.sourcecoast.com</authorUrl>
