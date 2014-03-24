@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package         Sendy Library - Implments subscribe and unsubscribe functions
  * @copyright (c)   2014 by SourceCoast - All Rights Reserved
@@ -6,7 +7,6 @@
  * @version         Release v1.0
  * @build-date      2014-03-05
  */
-
 class Sendy
 {
     var $apiKey;
@@ -15,10 +15,10 @@ class Sendy
     public function __construct()
     {
         jimport('joomla.plugin.helper');
+        $this->params = new JRegistry();
         $plugin = JPluginHelper::getPlugin('system', 'sendy');
         if ($plugin)
         {
-            $this->params = new JRegistry;
             $this->params->loadString($plugin->params);
         }
     }
@@ -50,8 +50,11 @@ class Sendy
 
     public function subscribeUser($email, $listId)
     {
+        $list = null;
         $lists = $this->getLists();
-        $list = $lists[$listId];
+        if (isset($lists[$listId]))
+            $list = $lists[$listId];
+
         if ($list)
         {
             $http = JHttpFactory::getHttp();
@@ -71,15 +74,26 @@ class Sendy
 
     public function unsubscribeUser($email, $listId)
     {
-        $list = $this->getLists()[$listId];
-        $http = JHttpFactory::getHttp();
-        $data = array();
-        $data['email'] = $email;
-        $data['list'] = $list->id;
-        $data['boolean'] = 'true';
+        $list = null;
 
-        $return = $http->post($this->unsubscribeUrl, $data);
-        $return = $return->body;
+        $lists = $this->getLists();
+        if (isset($lists[$listId]))
+            $list = $lists[$listId];
+
+        if ($list)
+        {
+            $http = JHttpFactory::getHttp();
+            $data = array();
+            $data['email'] = $email;
+            $data['list'] = $list->id;
+            $data['boolean'] = 'true';
+
+            $return = $http->post($this->unsubscribeUrl, $data);
+            $return = $return->body;
+        }
+        else
+            $return = "That list is not defined";
+
         return $return;
     }
 
