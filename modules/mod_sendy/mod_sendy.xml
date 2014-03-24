@@ -24,22 +24,22 @@
         <fields name="params">
             <fieldset name="sendy" label="COM_MODULES_BASIC_FIELDSET_LABEL" addfieldpath="/libraries/sendy/fields/">
                 <field name="list_id" type="sendylists" label="List Id" description="Enter the List ID"/>
-                <field name="subscribed_view" type="list" label="Subscribed View" description="If a user has already subscribed, select the type of view to display.">
+                <!--<field name="subscribed_view" type="list" label="Subscribed View" description="If a user has already subscribed, select the type of view to display.">
                         <option value="subscription_form">Subscription Form</option>
                         <option value="subscribed">Subscribed Notice</option>
                         <option value="hidden">Hidden</option>
-                </field>
+                </field>-->
                 <field name="introtext" type="textarea" rows="5" cols="40" label="Intro Text" filter="safehtml"
                        description="This is the text or HTML that is displayed above the social content." default=""/>
             </fieldset>
             <fieldset name="advanced">
                 <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" default=""/>
-                <field name="showPoweredByLink" type="radio" label="Show 'Sendy' newsletter text"
+                <!--<field name="showPoweredByLink" type="radio" label="Show 'Sendy' newsletter text"
                        description="Show 'Newsletters managed by Sendy' link" default="1">
                     <option value="0">Hide</option>
                     <option value="1">Show</option>
-                </field>
+                </field>-->
             </fieldset>
         </fields>
     </config>
