@@ -2,8 +2,8 @@
 <extension version="1.6" type="package" method="upgrade">
     <name>Sendy Integration for Joomla</name>
     <packagename>Sendy Integration for Joomla</packagename>
-    <version>1.0.2</version>
-    <creationDate>2014/03/24</creationDate>
+    <version>1.0.3</version>
+    <creationDate>2014/05/19</creationDate>
     <author>SourceCoast | www.sourcecoast.com</author>
     <authorEmail>support@sourcecoast.com</authorEmail>
     <authorUrl>http://www.sourcecoast.com</authorUrl>
