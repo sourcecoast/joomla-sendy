@@ -1,63 +1,98 @@
 <?php
 /**
- * @package         Sendy Module
- * @copyright (c)   2014 by SourceCoast - All Rights Reserved
- * @license         http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
- * @version         Release v1.0
- * @build-date      2014-03-05
+ * @package     SendyModule
+ * @subpackage  mod_sendy
+ *
+ * @author      SourceCoast <support@sourcecoast.com>
+ * @copyright   (C) 2014 by Source Coast - All rights reserved
+ * @license     http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
-// no direct access
+// No direct access
 defined('_JEXEC') or die('Restricted access');
 
-class modSendyHelper
+/**
+ * Module helper class
+ *
+ * @since  1.0.0
+ */
+class ModSendyHelper
 {
-    var $params;
-    var $module;
-    public function __construct($module)
-    {
-        $params = new JRegistry;
-  		$params->loadString($module->params);
-        $this->params = $params;
-        $this->module = $module;
-    }
+	protected $params;
 
-    public function __get($name)
-    {
-        switch ($name)
-        {
-            case 'sendyUrl':
-                return trim($this->params->get('sendy_url'), '/');
-            case 'subscribeUrl':
-                return $this->sendyUrl . '/subscribe';
-            case 'unsubscribeUrl':
-                return $this->sendyUrl . '/unsubscribe';
-        }
-    }
+	protected $module;
 
-/*    protected function getView()
-    {
-        switch ($this->params->get('subscribed_view'))
-        {
-            case ''
-        }
-    }*/
+	/**
+	 * Constructor method
+	 *
+	 * @param   object  $module  Joomla module
+	 */
+	public function __construct($module)
+	{
+		$params = new JRegistry;
+		$params->loadString($module->params);
+		$this->params = $params;
+		$this->module = $module;
+	}
 
-    public function render()
-    {
-        require(JModuleHelper::getLayoutPath('mod_sendy', 'subscribe'));
-    }
+	/**
+	 * Get Url
+	 *
+	 * @param   string  $name  URL type
+	 *
+	 * @return  string
+	 */
+	public function __get($name)
+	{
+		switch ($name)
+		{
+			case 'sendyUrl':
+				return trim($this->params->get('sendy_url'), '/');
+			case 'subscribeUrl':
+				return $this->sendyUrl . '/subscribe';
+			case 'unsubscribeUrl':
+				return $this->sendyUrl . '/unsubscribe';
+		}
+	}
 
-    public function subscribeUser($email)
-    {
-        $http = JHttpFactory::getHttp();
-        $data = array();
-        $data['email'] = $email;
-        $data['list'] = $this->params->get('list_id');
-        $data['boolean'] = 'true';
+	/*protected function getView()
+	{
+		switch ($this->params->get('subscribed_view'))
+		{
+			case ''
+		}
+	}*/
 
-        $return = $http->post($this->subscribeUrl, $data);
-        $return = $return->body;
-        return $return;
-    }
+	/**
+	 * Renders module layout
+	 *
+	 * @return  void
+	 */
+	public function render()
+	{
+		require JModuleHelper::getLayoutPath('mod_sendy', 'subscribe');
+	}
+
+	/**
+	 * Subscribe user to list
+	 *
+	 * @param   array  $userData  User data from form
+	 *
+	 * @return  object  Jhttp object
+	 */
+	public function subscribeUser($userData)
+	{
+		$http = JHttpFactory::getHttp();
+		$data = array();
+
+		$data['name']    = $userData['name'];
+		$data['email']   = $userData['email'];
+		$data['list']    = $this->params->get('list_id');
+		$data['boolean'] = 'true';
+
+		$return = $http->post($this->subscribeUrl, $data);
+		$return = $return->body;
+
+		return $return;
+	}
 }
